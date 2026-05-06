@@ -19,3 +19,6 @@ mouse_vs_ai_data_preprocessed/
 
 # Result pickles and large binary intermediates
 *.pkl
+
+# Leaderboard CSVs (not committed — kept locally for figure generation)
+data/leaderboard_*.csv
