@@ -1,0 +1,62 @@
+Using this as a container for the croissant RAI metadata, which is wordy.
+
+\subsection{Data Limitations}
+
+This dataset is intended as a research tool for benchmarking visual robustness and neural alignment in visual reinforcement learning agents, and is not suitable for training clinical, medical, or other AI systems where safety is critical. The neural recording data (Track 2) is derived from n=3 adult mice of a specific transgenic genotype (TITL-GCaMP6s × Emx1-Cre × ROSA:LNL:tTA), limiting generalizability to other species. Neural data covers layer 2/3 neurons in mouse posterior neocortex only, so it doesn't generalize to other brain regions. While the task is uniquely complex and active, it is still within the head-fixed, virtual-reality foraging paradigm - results may not generalize to freely moving navigation. While the four included perturbations are challenging for both animals and machines to solve, and inspired by natural variances in images, it doesn't exhaustively test the full domain of variances present in real world conditions. 
+
+%Anything else?
+
+\subsection{Data Biases}
+
+The neural recording dataset reflects a narrow biological sample: three adult mice (aged 18–50 weeks, both sexes) of a specific transgenic lineage maintained under identical laboratory housing conditions. As recordings were only collected from expert animals, the dataset is also biased toward those that could learn the task (this transgenic line has 100\% training success in our hands), as well as those with weeks of experience with the task and setup, etc. Sessions were selected for release in part due to sustained high performance, and thus wouldn't represent resting state dynamics or inactive viewing of the visual stimulus.
+
+%Anything else?
+
+\subsection{Personal Sensitive Information}
+This dataset does not contain any personal or sensitive information about humans. No human subjects were involved in data collection. All behavioral and neural data were recorded from laboratory mice under an approved IACUC protocol (University of California, Santa Barbara), in accordance with US Department of Health and Human Services regulations. 
+
+\subsection{Data Use Cases}
+The dataset is designed to measure two related phenomena: (1) the visual robustness of reinforcement learning agents under naturalistic distributional shift, and (2) the degree to which trained artificial agents from track 1 spontaneously develop representations that align with mouse visual cortical activity. Validated use cases include: benchmarking RL agent generalization across visual perturbations (evaluated via Average Success Rate and Minimum Success Rate across five visual conditions); evaluating neural alignment of trained vision models via linear regression (scored by mean Pearson correlation across neurons); and comparing behavioral performance of artificial agents against biological baselines (n=3 expert mice). Validity has been established through benchmarking of PPO-trained baseline agents with multiple encoder architectures (fully connected, 3-layer CNN, ResNet-18, and a neuro-inspired CNN). Use cases that have not been validated and are not recommended include: training agents directly on neural data; using the dataset for clinical applications; using the benchmark as a proxy for real-world robot or autonomous vehicle deployment readiness; and repurposing the dataset for neuroscience research unrelated to visual robustness.
+
+%Anything else?
+
+\subsection{Data Social Impact}
+This benchmark enables a biologically grounded evaluation of visual robustness and neural alignment in AI systems, contributing to the discovery of more robust machine learning architectures. Long term, this could inform the development of higher performing autonomous navigation systems that better handle poor or rare visual problems in the real world, which would have real positive impacts on human health and business. The primary risk of misuse is over-interpreting benchmark performance as indicative of deployment readiness in safety-critical domains (e.g., robotics, autonomous vehicles); this benchmark is strictly released as a research tool.
+
+%Anything else?
+
+\subsection{Synthetic Data?}
+TRUE
+Note: The Unity-based virtual environment generates synthetic visual observations (egocentric grayscale frames) used for RL agent training in Track 1. These are procedurally rendered frames from a 3D game engine, not recorded from the real world. The neural recording data in Track 2 is real biological data and is not synthetic.
+
+\subsection{Was Derived From}
+The dataset is not derived from any pre-existing public dataset. All neural recordings and behavioral data were collected by the research team at the University of California, Santa Barbara. The virtual environment was built from scratch using the Unity game engine, and extended for training neural RL agents with the ML-Agents framework. The neuro-inspired CNN baseline encoder is derived from the architecture described in Xu et al. (2023) (NeurIPS 2023; DOI: 10.1101/2023.05.30.542912). 
+
+In the croissant editor provided by NeurIPS for adding the RAI information, there is no field for block text. 
+Name: Robuse Foraging Competition, NeurIPS 2025
+URL: https://robustforaging.github.io/
+License: MIT
+
+\subsection{Was Generated By}
+Activity 1 — Animal Experiments and Neural Data Collection
+Description: Adult transgenic mice (TITL-GCaMP6s × Emx1-Cre × ROSA:LNL:tTA, both sexes, aged 18–50 weeks) underwent cranial window implantation over right posterior visual cortex. Following recovery and mapping of visual areas via intrinsic signal optical imaging (ISOI), mice were trained over ~13 sessions on the head-fixed VR foraging task. Expert mice (≥70\% success at target distance of ~0.8m) then performed the task concurrently with mesoscale two-photon calcium imaging using the Diesel2P system, recording layer 2/3 neurons across V1 and multiple HVAs. In some mice, neural recording was omitted and only behavior data was collected for perturbation performance. See Schneider et al. (2025) (ArXiv 2025; DOI: 10.48550/arXiv.2509.14446) for detailed methods.
+Agents:  Joe Canzano, Spencer LaVere Smith (University of California, Santa Barbara). 
+
+Activity 2 — Neural Data Preprocessing
+Description: Calcium imaging videos were motion-corrected and segmented with Suite2p. Raw fluorescence traces were neuropil-subtracted and baseline-corrected to yield ΔF traces, followed by spike inference using a Bayesian MCMC method. Cells were retained based on spike inference reproducibility (mean Pearson correlation >0.4 across 400 posterior samples). Neural and screen data were binned in 100 ms non-overlapping boxcar windows, paired with stimulus frames (accounting for 60 ms neural latency), and downsampled to 150×256 px. 
+Agents: Research team - Marius Schneider, Joe Canzano, Yuchen Hou, Jing Peng, Spencer LaVere Smith, Michael Beyeler (University of California, Santa Barbara). 
+Software: Suite2p (https://github.com/MouseLand/suite2p), LabVIEW and Arduino hardware code, Python/MATLAB pipelines.
+
+%Anything else? Train/test splitting on evaluation end?
+
+Activity 3 — Virtual Environment and Synthetic Data
+Description: The 3D virtual foraging environment was implemented in the Unity game engine and integrated with the ML-Agents framework for Python-based RL training. Model training data for RL was rendered in real time via Unity, which also trained the RL models. Baseline PPO agents were trained from scratch.
+Agents: Research team (as above). Software: Unity game engine, ML-Agents framework (https://github.com/Unity-Technologies/ml-agents), Python.
+
+%Anything else? Competition pipeline stuff?
+
+
+
+
+
+

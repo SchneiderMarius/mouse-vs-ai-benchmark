@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Generated evaluation outputs (reproducible by running the notebooks)
+results/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Neural session data (downloaded separately — not stored in this repo)
+*.npz
+mouse_vs_ai_data_preprocessed/
+
+# Result pickles and large binary intermediates
+*.pkl
