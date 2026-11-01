@@ -33,11 +33,12 @@ Track 1 evaluation runs inside the Unity game engine. Download builds for your p
 
 ```bibtex
 @inproceedings{schneider2025mousevsai,
-  title     = {Mouse vs.\ {AI}: A Benchmark for Visual Robustness and Neural Alignment},
+  title     = {Visual Robustness and Neural Alignment in a Shared
+Foraging Task: The Mouse vs. AI Benchmark},
   author    = {Schneider, Marius and Canzano, Joe and Hou, Yuchen and Peng, Jing
                and Smith, Spencer LaVere and Beyeler, Michael},
   booktitle = {NeurIPS --- Evaluations \& Datasets Track},
-  year      = {2025},
+  year      = {2026},
   url       = {https://robustforaging.github.io}
 }
 ```
